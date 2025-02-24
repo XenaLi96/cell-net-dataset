@@ -118,7 +118,7 @@ Each cell has **descriptive captions** generated to summarize:
 ## **📌 Citation**
 If you use **Cell-NET**, please cite:
 ```bibtex
-@article{cellnet2024,
+@article{cellnet2025,
   author  = {},
   title   = {Cell-NET14M: Redefining Microscopic Insights with a Multimodal Single-Cell Spatial Transcriptomics Dataset},
   journal = {Under Review},
