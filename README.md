@@ -37,19 +37,20 @@ A large-scale multimodal dataset for single-cell analysis.
 ## **📑 Data Structure**
 The **Cell-NET** dataset is stored in an **HDF5 file**, containing structured single-cell data across multiple modalities.
 
-### **📂 Data Organization**
-Each **cell instance** contains:
-| Field | Description |
-|--------|------------|
-| **Barcode(expression)** | Gene expression profile (e.g., 36,601 genes). |
-| **Cell-patch** | Cropped image of the individual cell. |
-| **Tissue-patch** | Larger window (200 µm) for local context. |
-| **WSI-patch** | Downsampled whole-slide image context. |
-| **Caption** | Natural language description of the cell’s morphology and state. |
-| **Attributes** | Metadata such as tissue type, disease state, cell type, etc. |
-| **CCC (Cell-Cell Communication)** | Interactions with neighboring cells based on ligand-receptor pairs. |
+## **📂 Data Organization**
+Each **cell instance** is stored in a structured format containing multimodal data, including gene expression, images, metadata, natural language captions, and cell-cell communication (CCC) data.
 
----
+```plaintext
+/Cell_0001  
+├── expression          # Gene expression profile (36,601 genes)
+├── images             # Multi-scale image patches
+│   ├── cell_patch     # Cropped cell-level image (uint8)
+│   ├── tissue_patch   # Larger tissue-level image (uint8)
+│   └── WSI_patch      # Whole-slide image patch (uint8)
+├── attributes.json     # Structured metadata (JSON)
+├── caption.txt         # Natural language description (str)
+└── CCC                 # Cell-Cell Communication (sparse matrix)
+
 
 ## **🔬 Multimodal Components**
 ### **1️⃣ Multi-Level Imaging**
