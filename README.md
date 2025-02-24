@@ -50,7 +50,7 @@ Each **cell instance** is stored in a structured format containing multimodal da
 ├── attributes.json     # Structured metadata (JSON)
 ├── caption.txt         # Natural language description (str)
 └── CCC                 # Cell-Cell Communication (sparse matrix)
-
+```
 
 ## **🔬 Multimodal Components**
 ### **1️⃣ Multi-Level Imaging**
