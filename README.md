@@ -71,19 +71,22 @@ Example:
 > *"The microscopic image reveals pleomorphic cells with enlarged, hyperchromatic nuclei, prominent nucleoli, eosinophilic cytoplasm, and areas of dense and sparse cellularity. Keratinization and potential intercellular bridges suggest squamous differentiation. Disorganized tissue architecture and irregular cell clustering indicate a likely squamous cell carcinoma, typically found in the head and neck region."*
 
 
-## **📑 Labeled Attributes**
+## 📑 Labeled Attributes
+
 Each cell in **Cell-NET** is annotated with structured metadata, allowing researchers to analyze multimodal relationships between **morphology, spatial context, and transcriptomics**.
-| Attribute | Example Value |
-|-----------|--------------|
-| **source** | `"Human"` |
-| **tissue** | `"Lymph node"` |
-| **cell_type** | `"T-cell"` |
-| **cell_disease_state** | `"Cancer"` |
-| **tissue_disease_state** | `"Cancer"` |
-| **Position_in_tissue** | `"(1945, 345)"` |
-| **Position_in_WSI** | `"(893021, 398472)"` |
-| **cell_diameter** | `"9.0 µm"` |
-| **st_technology** | `"Visium HD"` |
+
+| **Attribute**           | **Example Value**        |
+|-------------------------|-------------------------|
+| **source**              | `"Human"`               |
+| **tissue**              | `"Lymph node"`          |
+| **cell_type**           | `"T-cell"`              |
+| **cell_disease_state**  | `"Cancer"`              |
+| **tissue_disease_state**| `"Cancer"`              |
+| **Position_in_tissue**  | `"(1945, 345)"`        |
+| **Position_in_WSI**     | `"(893021, 398472)"`    |
+| **cell_diameter**       | `"9.0 µm"`              |
+| **st_technology**       | `"Visium HD"`           |
+
 
 
 
