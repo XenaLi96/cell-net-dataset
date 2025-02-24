@@ -37,9 +37,6 @@ A large-scale multimodal dataset for single-cell analysis.
 ## **📑 Data Structure**
 The **Cell-NET** dataset is stored in an **HDF5 file**, containing structured single-cell data across multiple modalities.
 
-## **📂 Data Organization**
-Each **cell instance** is stored in a structured format containing multimodal data, including gene expression, images, metadata, natural language captions, and cell-cell communication (CCC) data.
-
 ```plaintext
 /Cell_0001  
 ├── expression          # Gene expression profile (36,601 genes)
@@ -73,12 +70,9 @@ Each cell receives an **automatically generated caption** describing its **morph
 Example:
 > *"The microscopic image reveals pleomorphic cells with enlarged, hyperchromatic nuclei, prominent nucleoli, eosinophilic cytoplasm, and areas of dense and sparse cellularity. Keratinization and potential intercellular bridges suggest squamous differentiation. Disorganized tissue architecture and irregular cell clustering indicate a likely squamous cell carcinoma, typically found in the head and neck region."*
 
----
 
 ## **📑 Labeled Attributes**
 Each cell in **Cell-NET** is annotated with structured metadata, allowing researchers to analyze multimodal relationships between **morphology, spatial context, and transcriptomics**.
-
-### **🔬 Example Metadata Fields**
 | Attribute | Example Value |
 |-----------|--------------|
 | **source** | `"Human"` |
