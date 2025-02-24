@@ -62,25 +62,22 @@ Each **cell instance** contains:
 - Gene list file includes **all detected genes** per cell.
 - Expression matrix provides **log-normalized read counts**.
 
-### **3️⃣ Spatial Transcriptomics**
-- Each cell has **spatial coordinates** within the tissue slice (`Position_in_tissue`).
-- Mapped to **whole-slide images** (`Position_in_WSI`).
-- Enables **spatially-aware transcriptomics analysis**.
-
-### **4️⃣ Cell-Cell Communication (CCC)**
+### **3️⃣ Cell-Cell Communication (CCC)**
 - Computed using **CellChat** and **COMMOT**.
 - Models **ligand-receptor interactions** within a **200 µm radius**.
 - Supports **spatial organization and cellular interaction analysis**.
 
-### **5️⃣ Vision-Language Annotations**
-Each cell has **descriptive captions** generated to summarize:
-- **Morphology**: e.g., "Pleomorphic cells with hyperchromatic nuclei."
-- **Tissue organization**: e.g., "Cell clustering suggests a tumor microenvironment."
-- **Disease state**: e.g., "Likely squamous cell carcinoma."
+### **4️⃣ Language Captioning**
+Each cell receives an **automatically generated caption** describing its **morphological characteristics, local environment, and potential pathology.**  
+Example:
+> *"The microscopic image reveals pleomorphic cells with enlarged, hyperchromatic nuclei, prominent nucleoli, eosinophilic cytoplasm, and areas of dense and sparse cellularity. Keratinization and potential intercellular bridges suggest squamous differentiation. Disorganized tissue architecture and irregular cell clustering indicate a likely squamous cell carcinoma, typically found in the head and neck region."*
 
 ---
 
-## **🔬 Example Metadata Fields**
+## **📑 Labeled Attributes**
+Each cell in **Cell-NET** is annotated with structured metadata, allowing researchers to analyze multimodal relationships between **morphology, spatial context, and transcriptomics**.
+
+### **🔬 Example Metadata Fields**
 | Attribute | Example Value |
 |-----------|--------------|
 | **source** | `"Human"` |
@@ -92,6 +89,8 @@ Each cell has **descriptive captions** generated to summarize:
 | **Position_in_WSI** | `"(893021, 398472)"` |
 | **cell_diameter** | `"9.0 µm"` |
 | **st_technology** | `"Visium HD"` |
+
+
 
 ---
 
