@@ -1,7 +1,7 @@
 # **Cell-NET Dataset**
 A large-scale multimodal dataset for single-cell analysis.
 
-![Dataset Overview](comparison.png)
+![Dataset Overview](Comparison.png)
 
 ## **Overview**
 **Cell-NET** is a high-resolution **multimodal single-cell dataset** comprising **14.4 million** single-cell samples. It bridges **microscopic imaging, gene expression, spatial transcriptomics, and natural language annotations**, enabling a **bottom-up, interpretable** approach to modeling biological systems.  
@@ -27,11 +27,6 @@ A large-scale multimodal dataset for single-cell analysis.
 ### **Dataset Structure**
 ![Dataset](dataset.png)
 *Figure 1: Cell-NET integrates imaging, transcriptomics, and structured metadata for multimodal single-cell analysis.*
-
-### **Example: Multimodal Cell Representation**
-![Dataset Example](realexample.png)
-*Figure 2: A real example from the dataset showing cell morphology, gene expression, and spatial context.*
-
 ---
 
 ## **📑 Data Structure**
