@@ -112,7 +112,7 @@ If you use **Cell-NET**, please cite:
 ```bibtex
 @article{cellnet2025,
   author  = {},
-  title   = {Cell-NET14M: Redefining Microscopic Insights with a Multimodal Single-Cell Spatial Transcriptomics Dataset},
+  title   = {Cell-NET13M: Redefining Microscopic Insights with a Multimodal Single-Cell Spatial Transcriptomics Dataset},
   journal = {Under Review},
   year    = {2025}
 }
