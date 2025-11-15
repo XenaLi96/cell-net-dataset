@@ -182,7 +182,7 @@ print(f"Total batches in DataLoader: {len(dataloader)}")
 # =============================
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 print("Using device:", device)
-model_path = "/home/yaqih10/CellNet/self_benchmarks/ctranspath.pth"
+model_path = "..."
 model = CTransPathEncoder(model_path).to(device)
 model.eval()
 
