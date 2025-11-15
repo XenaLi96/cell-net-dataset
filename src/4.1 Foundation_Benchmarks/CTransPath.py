@@ -159,8 +159,8 @@ class HistologyDataset(torch.utils.data.Dataset):
 # Data Preparation
 # =============================
 # Set these directories to your data locations.
-image_dir = "/extra/zhanglab0/xil43/Xenium/CellNet_data/cell_patches/cell_img/" + sample_name
-gene_expr_dir = "/extra/zhanglab0/xil43/Xenium/CellNet_data/cell_patches/cell_gene_expression/" + sample_name
+image_dir = "..." + sample_name
+gene_expr_dir = "..." + sample_name
 
 # Define image transformations.
 transform = transforms.Compose([
