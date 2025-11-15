@@ -18,9 +18,6 @@ from tqdm import tqdm
 from sklearn.metrics import accuracy_score, recall_score, confusion_matrix, roc_auc_score, f1_score
 
 
-'''state_dict = torch.load("/home/yaqih10/CellNet/self_benchmarks/CONCH.bin", map_location="cpu")
-print(state_dict.keys())  # See if they match vit_b_16'''
-
 sample_name = 'HLCX022'
 
 # =============================
@@ -32,7 +29,7 @@ print("Using device:", device)
 # Load CONCH Model with Pretrained Weights
 model, preprocess = create_model_from_pretrained(
     "conch_ViT-B-16", 
-    checkpoint_path="/home/yaqih10/CellNet/self_benchmarks/CONCH.bin"
+    checkpoint_path="..."
 )
 print("Model loaded successfully!")
 
@@ -138,8 +135,8 @@ class HistologyDataset(torch.utils.data.Dataset):
 # Data Preparation
 # =============================
 # Set these directories to your data locations.
-image_dir = "/extra/zhanglab0/xil43/Xenium/CellNet_data/cell_patches/cell_img/" + sample_name
-gene_expr_dir = "/extra/zhanglab0/xil43/Xenium/CellNet_data/cell_patches/cell_gene_expression/" + sample_name
+image_dir = "..." + sample_name
+gene_expr_dir = "..." + sample_name
 
 # Define image transformations.
 transform = transforms.Compose([
