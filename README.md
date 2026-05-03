@@ -1,119 +1,189 @@
-# **Cell-NET Dataset**
-A large-scale multimodal dataset for single-cell analysis.
+# sMMC-22M / Cell-NET20M
 
-![Dataset Overview](comparison.png)
+**sMMC-22M** is a context-aware, cell-aligned multimodal dataset and benchmark for
+single-cell spatial transcriptomics. The project was previously organized under the
+Cell-NET name; the current manuscript introduces the resource as:
 
-## **Overview**
-**Cell-NET** is a high-resolution **multimodal single-cell dataset** comprising **14.4 million** single-cell samples. It bridges **microscopic imaging, gene expression, spatial transcriptomics, and natural language annotations**, enabling a **bottom-up, interpretable** approach to modeling biological systems.  
+> **sMMC-22M: A Context-Aware Dataset and Benchmark for Single-Cell Spatial Transcriptomics**
 
-### 🔹 **Key Features**
-- **Multi-scale imaging**: Each single-cell instance has **three hierarchical image patches**:
-  - **Cell-level** (64×64 px) – Captures fine-grained morphology.
-  - **Tissue-level** (200 µm window) – Provides microenvironment context.
-  - **Whole-slide level** – Offers global histopathological insights.
-- **Transcriptomics Data**: RNA-seq profiles capturing over **36,000 genes** per cell.
-- **Spatial transcriptomics integration**: Mapping gene expression to tissue structure.
-- **Cell-to-cell communication (CCC) graphs**: Infers interactions between neighboring cells.
-- **Vision-Language Annotations**: Each cell has **descriptive captions** generated to summarize **morphology, tissue context, and pathology**.
+The dataset pairs histology, molecular profiles, spatial coordinates, structured
+metadata, cell-cell communication context, and language annotations at the level of
+individual cells. It is designed to test whether morphology and local tissue context
+can predict molecular state beyond narrow in-domain interpolation.
 
----
+![sMMC-22M / Cell-NET20M overview](dataset.png)
 
-## **📥 Download**
-[🔗 Dataset Link](#) <!-- Replace with actual link when available -->
+## Highlights
 
----
+- **Scale:** 23.94M aligned single-cell records in the full release manifest.
+- **Coverage:** 25 organ categories across Xenium and Visium HD data blocks.
+- **Platforms:** 16.31M Xenium cells and 7.63M Visium HD bin-to-cell aligned records.
+- **Resolution:** each benchmark unit is a single aligned cell rather than a mixed ST spot.
+- **Context:** each cell can include histology crops, expression targets, spatial coordinates,
+  sample-level metadata, neighborhood descriptors, CCC features, and captions.
+- **Benchmarking:** predefined splits support in-domain, cross-patient, cross-platform,
+  context-shift, encoder scaling, and ST model evaluation.
 
-## **🖼️ Figures**
-### **Dataset Structure**
-![Dataset](dataset.png)
-*Figure 1: Cell-NET integrates imaging, transcriptomics, and structured metadata for multimodal single-cell analysis.*
----
+## Dataset Structure
 
-## **📑 Data Structure**
-The **Cell-NET** dataset is stored in an **HDF5 file**, containing structured single-cell data across multiple modalities.
+sMMC-22M is organized around a shared cellular anchor. Each cell record links
+image, omics, metadata, spatial, and optional language/context fields for the same
+biological unit.
 
-```plaintext
-/Cell_0001  
-├── expression          # Gene expression profile (36,601 genes)
-├── images             # Multi-scale image patches
-│   ├── cell_patch     # Cropped cell-level image (uint8)
-│   ├── tissue_patch   # Larger tissue-level image (uint8)
-│   └── WSI_patch      # Whole-slide image patch (uint8)
-├── attributes.json     # Structured metadata (JSON)
-├── caption.txt         # Natural language description (str)
-└── CCC                 # Cell-Cell Communication (sparse matrix)
+```text
+cell_record/
+  images/
+    cell_patch              # Cell-centered morphology crop
+    tissue_patch            # Local tissue context, about 200 um
+    wsi_patch               # Larger whole-slide context when available
+  omics/
+    expression              # Xenium panel genes or processed Visium HD targets
+    gene_names              # Target gene order for the expression vector
+  metadata/
+    cell_id
+    sample_id
+    study_id
+    platform                # Xenium, Visium HD, or harmonized benchmark block
+    species
+    organ
+    tissue
+    cell_type
+    disease_state
+    position_in_tissue
+    position_in_wsi
+  context/
+    neighborhood_features
+    cell_cell_communication # Ligand-receptor or neighborhood interaction features
+  language/
+    caption                 # Automated morphology and microenvironment description
 ```
 
-## **🔬 Multimodal Components**
-### **1️⃣ Multi-Level Imaging**
-- **Cell-Level** (64×64 pixels): Captures **nuclear morphology** and fine-grained details.
-- **Tissue-Level** (200 µm window): Provides **neighborhood context** of the cell.
-- **WSI-Level**: Whole-slide view to integrate local and **global tissue information**.
+The full release is distributed as benchmark-ready blocks and manifests rather than
+as a single monolithic file:
 
-### **2️⃣ Gene Expression Profiles**
-- Derived from **10x Visium HD & Xenium platforms**.
-- Gene list file includes **all detected genes** per cell.
-- Expression matrix provides **log-normalized read counts**.
+| Release block | Platform / species | Studies | Organs | Cells | Unit | Artifact |
+| --- | --- | ---: | ---: | ---: | --- | --- |
+| Full release | Xenium + Visium HD; human, mouse, and other species | 66 | 25 | 23.94M | Aligned single-cell record | `manifest/` |
+| Xenium public block | Xenium; human and mouse | 42 | 15 | 16.31M | Platform-defined segmented cell | `xenium/*.h5ad` |
+| Visium HD public block | Visium HD; human, mouse, and other species | 24 | 16 | 7.63M | 8 um bin-to-cell aligned record | `visium_hd/*.h5ad` |
+| Reviewer subset | Mixed subset | - | - | subset | Same schema | `review_subset/` |
+| Benchmark split package | Mixed selected records | - | - | fixed | Split-indexed cell records | `splits/`, `configs/` |
 
-### **3️⃣ Cell-Cell Communication (CCC)**
-- Computed using **CellChat** and **COMMOT**.
-- Models **ligand-receptor interactions** within a **200 µm radius**.
-- Supports **spatial organization and cellular interaction analysis**.
+## Benchmarks
 
-### **4️⃣ Language Captioning**
-Each cell receives an **automatically generated caption** describing its **morphological characteristics, local environment, and potential pathology.**  
-Example:
-> *"The microscopic image reveals pleomorphic cells with enlarged, hyperchromatic nuclei, prominent nucleoli, eosinophilic cytoplasm, and areas of dense and sparse cellularity. Keratinization and potential intercellular bridges suggest squamous differentiation. Disorganized tissue architecture and irregular cell clustering indicate a likely squamous cell carcinoma, typically found in the head and neck region."*
+sMMC-22M Bench is organized around three data-centric axes:
 
+1. **Scale:** pathology encoder benchmarking and scaling-law analysis test whether larger
+   pathology foundation models improve morphology-to-gene correspondence under matched
+   evaluation.
+2. **Resolution:** image-to-single-cell expression prediction evaluates single-cell targets
+   under strict in-domain and cross-patient splits.
+3. **Rich context:** cross-platform and context-shift experiments test whether models remain
+   robust under biologically meaningful changes, including sample-level shifts such as age bands.
 
-## 📑 Labeled Attributes
+The overview figure also summarizes benchmark families for pathology encoders, scaling-law
+experiments, and spatial transcriptomics models such as STMoE, BLEEP, and Hist2ST.
 
-Each cell in **Cell-NET** is annotated with structured metadata, allowing researchers to analyze multimodal relationships between **morphology, spatial context, and transcriptomics**.
+## Repository Layout
 
-| **Attribute**           | **Example Value**        |
-|-------------------------|-------------------------|
-| **source**              | `"Human"`               |
-| **tissue**              | `"Lymph node"`          |
-| **cell_type**           | `"T-cell"`              |
-| **cell_disease_state**  | `"Cancer"`              |
-| **tissue_disease_state**| `"Cancer"`              |
-| **Position_in_tissue**  | `"(1945, 345)"`        |
-| **Position_in_WSI**     | `"(893021, 398472)"`    |
-| **cell_diameter**       | `"9.0 µm"`              |
-| **st_technology**       | `"Visium HD"`           |
+```text
+.
+  README.md
+  dataset.png
+  comparison.png
+  data_sample/
+    *.zip                       # Lightweight per-cell image and metadata samples
+    sample_captions/*.csv       # Example generated captions
+  src/
+    Captioning/                 # Caption generation and quality-control notebooks
+    Foundation_Benchmarks/      # Encoder extraction and scaling-law evaluation scripts
+```
 
+Sample zip files contain lightweight cell-level examples. A typical extracted sample folder
+contains per-cell image patches and attributes:
 
+```text
+cell_id/
+  cell.tif
+  patch.tif
+  attributes.csv
+```
 
+## Quick Start
 
----
+Build a cell-level manifest for benchmark experiments:
 
-## **📊 Applications**
-**Cell-NET** enables various downstream tasks, including:
-### ✅ **1. Cell Type Classification**
-- Benchmark for **single-cell vision models**.
-- Supports **few-shot learning** approaches.
+```bash
+python src/Foundation_Benchmarks/build_manifest.py \
+  --data-root /path/to/sMMC-22M \
+  --out cache/scaling_law/manifest.csv \
+  --validate-files
+```
 
-### ✅ **2. Gene Expression Prediction**
-- Infers **gene profiles from histological images**.
-- Bridges **imaging and transcriptomics**.
+Extract ResNet-50 embeddings for a smoke test or baseline run:
 
-### ✅ **3. Spatial Domain Segmentation**
-- Identifies **functional tissue regions**.
-- Useful for **tumor microenvironment mapping**.
+```bash
+python src/Foundation_Benchmarks/extract_resnet50_embeddings.py \
+  --manifest cache/scaling_law/manifest.csv \
+  --out-root cache/scaling_law/embeddings \
+  --batch-size 64
+```
 
-### ✅ **4. Cell-Cell Interaction Modeling**
-- Analyzes **spatially-resolved signaling networks**.
-- Supports **multi-modal biological modeling**.
+Run the scaling-law evaluation:
 
----
+```bash
+python src/Foundation_Benchmarks/run_scaling.py \
+  --embedding-root cache/scaling_law/embeddings \
+  --out-dir results/scaling_law/resnet50 \
+  --ratios 0.01 0.05 0.10 0.25 0.50 1.00
+```
 
-## **📌 Citation**
-If you use **Cell-NET**, please cite:
+For pathology foundation models, use:
+
+```bash
+python src/Foundation_Benchmarks/extract_encoder_embeddings.py \
+  --encoder uni \
+  --manifest cache/scaling_law/manifest.csv \
+  --out-root cache/scaling_law/embeddings \
+  --local-files-only
+```
+
+Supported encoder names include `conch`, `ctranspath`, `hoptimus0`, `phikon`, `uni`,
+and `uni2`.
+
+## Potential Applications
+
+- Single-cell histology-to-gene prediction
+- Cross-patient and cross-platform generalization analysis
+- Pathology foundation model benchmarking
+- Spatial domain segmentation and tissue-state discovery
+- Cell-type and disease-state classification
+- Morphological phenotype analysis
+- Cell-cell communication and microenvironment modeling
+- Multimodal captioning and image-language evaluation
+
+## Data Access
+
+The full public release link will be added after release. This repository currently includes
+lightweight sample files under `data_sample/` and benchmark/captioning code under `src/`.
+
+Users must follow the license terms of the source studies and should not attempt to
+re-identify patients or derive protected health information from the data.
+
+## Citation
+
+If you use this dataset or benchmark, please cite the manuscript:
+
 ```bibtex
-@article{cellnet2025,
-  author  = {},
-  title   = {Cell-NET13M: Redefining Microscopic Insights with a Multimodal Single-Cell Spatial Transcriptomics Dataset},
-  journal = {Under Review},
-  year    = {2025}
+@misc{smmc22m2026,
+  title  = {sMMC-22M: A Context-Aware Dataset and Benchmark for Single-Cell Spatial Transcriptomics},
+  author = {Anonymous},
+  note   = {Submitted to NeurIPS 2026},
+  year   = {2026}
 }
+```
 
+## License
+
+See [LICENSE](LICENSE) for repository license terms. Source datasets may have additional
+license and usage constraints; check the release manifest before redistribution or downstream use.
