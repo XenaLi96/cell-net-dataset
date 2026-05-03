@@ -1,8 +1,7 @@
-# sMMC-22M / Cell-NET20M
+# sMMC-22M
 
 **sMMC-22M** is a context-aware, cell-aligned multimodal dataset and benchmark for
-single-cell spatial transcriptomics. The project was previously organized under the
-Cell-NET name; the current manuscript introduces the resource as:
+single-cell spatial transcriptomics. The current manuscript introduces the resource as:
 
 > **sMMC-22M: A Context-Aware Dataset and Benchmark for Single-Cell Spatial Transcriptomics**
 
@@ -11,7 +10,7 @@ metadata, cell-cell communication context, and language annotations at the level
 individual cells. It is designed to test whether morphology and local tissue context
 can predict molecular state beyond narrow in-domain interpolation.
 
-![sMMC-22M / Cell-NET20M overview](dataset.png)
+![sMMC-22M overview](dataset.png)
 
 ## Highlights
 
@@ -66,8 +65,24 @@ as a single monolithic file:
 | Full release | Xenium + Visium HD; human, mouse, and other species | 66 | 25 | 23.94M | Aligned single-cell record | `manifest/` |
 | Xenium public block | Xenium; human and mouse | 42 | 15 | 16.31M | Platform-defined segmented cell | `xenium/*.h5ad` |
 | Visium HD public block | Visium HD; human, mouse, and other species | 24 | 16 | 7.63M | 8 um bin-to-cell aligned record | `visium_hd/*.h5ad` |
-| Reviewer subset | Mixed subset | - | - | subset | Same schema | `review_subset/` |
-| Benchmark split package | Mixed selected records | - | - | fixed | Split-indexed cell records | `splits/`, `configs/` |
+
+## 📑 Labeled Attributes
+
+Each cell in **sMMC-22M** is annotated with structured metadata, allowing researchers
+to analyze multimodal relationships between **morphology, spatial context, and
+transcriptomics**.
+
+| **Attribute** | **Example Value** |
+| --- | --- |
+| **source** | `"Human"` |
+| **tissue** | `"Lymph node"` |
+| **cell_type** | `"T-cell"` |
+| **cell_disease_state** | `"Cancer"` |
+| **tissue_disease_state** | `"Cancer"` |
+| **Position_in_tissue** | `"(1945, 345)"` |
+| **Position_in_WSI** | `"(893021, 398472)"` |
+| **cell_diameter** | `"9.0 µm"` |
+| **st_technology** | `"Visium HD"` |
 
 ## Benchmarks
 
@@ -108,48 +123,6 @@ cell_id/
   patch.tif
   attributes.csv
 ```
-
-## Quick Start
-
-Build a cell-level manifest for benchmark experiments:
-
-```bash
-python src/Foundation_Benchmarks/build_manifest.py \
-  --data-root /path/to/sMMC-22M \
-  --out cache/scaling_law/manifest.csv \
-  --validate-files
-```
-
-Extract ResNet-50 embeddings for a smoke test or baseline run:
-
-```bash
-python src/Foundation_Benchmarks/extract_resnet50_embeddings.py \
-  --manifest cache/scaling_law/manifest.csv \
-  --out-root cache/scaling_law/embeddings \
-  --batch-size 64
-```
-
-Run the scaling-law evaluation:
-
-```bash
-python src/Foundation_Benchmarks/run_scaling.py \
-  --embedding-root cache/scaling_law/embeddings \
-  --out-dir results/scaling_law/resnet50 \
-  --ratios 0.01 0.05 0.10 0.25 0.50 1.00
-```
-
-For pathology foundation models, use:
-
-```bash
-python src/Foundation_Benchmarks/extract_encoder_embeddings.py \
-  --encoder uni \
-  --manifest cache/scaling_law/manifest.csv \
-  --out-root cache/scaling_law/embeddings \
-  --local-files-only
-```
-
-Supported encoder names include `conch`, `ctranspath`, `hoptimus0`, `phikon`, `uni`,
-and `uni2`.
 
 ## Potential Applications
 
