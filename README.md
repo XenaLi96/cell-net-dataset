@@ -62,9 +62,9 @@ as a single monolithic file:
 
 | Release block | Platform / species | Studies | Organs | Cells | Unit | Artifact |
 | --- | --- | ---: | ---: | ---: | --- | --- |
-| Full release | Xenium + Visium HD; human, mouse, and other species | 66 | 25 | 23.94M | Aligned single-cell record | `manifest/` |
-| Xenium public block | Xenium; human and mouse | 42 | 15 | 16.31M | Platform-defined segmented cell | `xenium/*.h5ad` |
-| Visium HD public block | Visium HD; human, mouse, and other species | 24 | 16 | 7.63M | 8 um bin-to-cell aligned record | `visium_hd/*.h5ad` |
+| Full release | Xenium + Visium HD; human, mouse, and other species | 66 | 25 | 23.94M | Aligned single-cell record | `Full_release/` |
+| Xenium public block | Xenium; human and mouse | 42 | 15 | 16.31M | Platform-defined segmented cell | `Xenium_public_block/` |
+| Visium HD public block | Visium HD; human, mouse, and other species | 24 | 16 | 7.63M | 8 um bin-to-cell aligned record | `Visium_HD_public_block/` |
 
 ## 📑 Labeled Attributes
 
@@ -105,17 +105,23 @@ experiments, and spatial transcriptomics models such as STMoE, BLEEP, and Hist2S
 .
   README.md
   dataset.png
-  comparison.png
-  data_sample/
-    *.zip                       # Lightweight per-cell image and metadata samples
+  Full_release/
+    README.md                   # Full release placeholder; Globus after publication
+  Xenium_public_block/
+    README.md                   # Xenium block placeholder; Globus after publication
+  Visium_HD_public_block/
+    README.md                   # Visium HD block placeholder; Globus after publication
+  Reviewer_subset/
+    *.zip                       # Lightweight reviewer subset with per-cell examples
     sample_captions/*.csv       # Example generated captions
-  src/
-    Captioning/                 # Caption generation and quality-control notebooks
-    Foundation_Benchmarks/      # Encoder extraction and scaling-law evaluation scripts
+  Benchmark_package/
+    src/
+      Captioning/               # Caption generation and quality-control notebooks
+      Foundation_Benchmarks/    # Encoder extraction and scaling-law evaluation scripts
 ```
 
-Sample zip files contain lightweight cell-level examples. A typical extracted sample folder
-contains per-cell image patches and attributes:
+Sample zip files in `Reviewer_subset/` contain lightweight cell-level examples. A
+typical extracted sample folder contains per-cell image patches and attributes:
 
 ```text
 cell_id/
@@ -137,8 +143,13 @@ cell_id/
 
 ## Data Access
 
-The full public release link will be added after release. This repository currently includes
-lightweight sample files under `data_sample/` and benchmark/captioning code under `src/`.
+After the paper is published, the full release and platform-specific public blocks
+will be distributed through Globus. The `Full_release/`, `Xenium_public_block/`,
+and `Visium_HD_public_block/` directories currently contain release notes and will
+be updated with Globus access information, manifests, and checksum instructions.
+
+This repository currently includes lightweight reviewer examples under
+`Reviewer_subset/` and benchmark/captioning code under `Benchmark_package/src/`.
 
 Users must follow the license terms of the source studies and should not attempt to
 re-identify patients or derive protected health information from the data.
