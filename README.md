@@ -12,6 +12,9 @@ can predict molecular state beyond narrow in-domain interpolation.
 
 ![sMMC-22M overview](dataset.png)
 
+## News
+We have updated the supporting evidence to demonstrate that our figures were not AI-generated and have prepared the rebuttal package for the reviewers.
+
 ## Highlights
 
 - **Scale:** 23.94M aligned single-cell records in the full release manifest.
