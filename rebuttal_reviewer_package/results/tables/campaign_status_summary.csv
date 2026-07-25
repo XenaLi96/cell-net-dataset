@@ -1,0 +1,9 @@
+family,n_complete,n_expected
+bleep_adapter,30,30
+caption_audit,1,1
+cross_sample,18,18
+encoder_spatial,7,7
+hd_assignment,3,3
+pseudospot,6,6
+skin_context,5,5
+xenium_spatial,30,30

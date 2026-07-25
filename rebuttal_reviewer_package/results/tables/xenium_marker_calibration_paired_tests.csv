@@ -1,0 +1,4 @@
+reference,comparator,metric,n_pairs,mean_difference,median_difference,wilcoxon_statistic,wilcoxon_pvalue,wilcoxon_pvalue_holm
+image,coordinate,pearson_gene_macro,30,0.1697412589730446,0.17059488302629633,3.0,9.313225746154785e-09,1.862645149230957e-08
+image,spatial_knn,pearson_gene_macro,30,0.17214826583585185,0.16193810603870037,3.0,9.313225746154785e-09,1.862645149230957e-08
+image,train_mean,pearson_gene_macro,30,0.20054092997545148,0.18973813687823787,1.0,3.725290298461914e-09,1.1175870895385742e-08

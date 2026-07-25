@@ -1,0 +1,13 @@
+example_id,dataset_name,variant,median_bin_jaccard,median_expression_cosine
+d,Visium_HD_Human_Lung_Cancer_Fixed_Frozen,erode_1um,0.5,0.8767323822514776
+d,Visium_HD_Human_Lung_Cancer_Fixed_Frozen,dilate_1um,0.6216216216216216,0.9381941874331419
+d,Visium_HD_Human_Lung_Cancer_Fixed_Frozen,shift_x_1um,0.7272727272727273,0.953776176686811
+d,Visium_HD_Human_Lung_Cancer_Fixed_Frozen,shift_y_1um,0.7333333333333333,0.9565330177326544
+e,Visium_HD_Mouse_Brain_Fixed_Frozen,erode_1um,0.6666666666666666,0.8709215573217379
+e,Visium_HD_Mouse_Brain_Fixed_Frozen,dilate_1um,0.7196491228070175,0.9059139538441461
+e,Visium_HD_Mouse_Brain_Fixed_Frozen,shift_x_1um,0.8064516129032258,0.9359631463026745
+e,Visium_HD_Mouse_Brain_Fixed_Frozen,shift_y_1um,0.8157894736842105,0.939202840812809
+g,Visium_HD_Human_Pancreas_FFPE,erode_1um,0.46153846153846156,0.9812238460534605
+g,Visium_HD_Human_Pancreas_FFPE,dilate_1um,0.6,0.9928936317961855
+g,Visium_HD_Human_Pancreas_FFPE,shift_x_1um,0.7058823529411765,0.9940120655618925
+g,Visium_HD_Human_Pancreas_FFPE,shift_y_1um,0.7142857142857143,0.9943713278197901

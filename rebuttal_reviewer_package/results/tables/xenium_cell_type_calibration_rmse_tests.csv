@@ -1,0 +1,4 @@
+reference,comparator,metric,n_pairs,mean_difference,median_difference,wilcoxon_statistic,wilcoxon_pvalue,wilcoxon_pvalue_holm
+image,coordinate,pseudobulk_rmse_log1p,30,-0.10348359394719747,-0.08217951538375556,0.0,1.862645149230957e-09,5.587935447692871e-09
+image,spatial_knn,pseudobulk_rmse_log1p,30,-0.06639657256316318,-0.06070747122935513,2.0,5.587935447692871e-09,7.450580596923828e-09
+image,train_mean,pseudobulk_rmse_log1p,30,-0.06801342329109335,-0.06994094134510992,1.0,3.725290298461914e-09,7.450580596923828e-09

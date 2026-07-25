@@ -1,0 +1,121 @@
+sample,species,organ,condition,model,n_cell_types,pseudobulk_pearson,pseudobulk_rmse_log1p
+FFHO026,human,ovary,ovarian adenocarcinoma,coordinate,17,0.7712054305842945,0.2915136417640107
+FFHO026,human,ovary,ovarian adenocarcinoma,image,17,0.8888399356177875,0.1694605573346572
+FFHO026,human,ovary,ovarian adenocarcinoma,spatial_knn,17,0.8158898992197854,0.2542874161154031
+FFHO026,human,ovary,ovarian adenocarcinoma,train_mean,17,0.8117277600935527,0.25623306725174183
+FFMB028,mouse,brain,brain hemisphere,coordinate,11,0.6773136456807455,0.2902804498489086
+FFMB028,mouse,brain,brain hemisphere,image,11,0.8531580536793439,0.15776829459728334
+FFMB028,mouse,brain,brain hemisphere,spatial_knn,11,0.7152862449487051,0.27589378372216833
+FFMB028,mouse,brain,brain hemisphere,train_mean,11,0.7404222946900588,0.2607475610879751
+FFMC016,mouse,colon,colon,coordinate,19,0.5380373759848525,0.504343813591039
+FFMC016,mouse,colon,colon,image,19,0.9341450793974435,0.17637396114530846
+FFMC016,mouse,colon,colon,spatial_knn,19,0.71602713564105,0.3729692673060431
+FFMC016,mouse,colon,colon,train_mean,19,0.7199874893942876,0.3716222072270379
+HBCA041,human,breast,breast IDC,coordinate,18,0.5763237534365693,0.2791016355889743
+HBCA041,human,breast,breast IDC,image,18,0.8661902840020227,0.14854992645197224
+HBCA041,human,breast,breast IDC,spatial_knn,18,0.6375595340963269,0.262525775637783
+HBCA041,human,breast,breast IDC,train_mean,18,0.6303883241336854,0.25989543341222354
+HBCD036,human,brain,glioblastoma,coordinate,7,0.7734682574868202,0.2828933265060186
+HBCD036,human,brain,glioblastoma,image,7,0.8342876017093659,0.1770525630563497
+HBCD036,human,brain,glioblastoma,spatial_knn,7,0.784769381582737,0.2546619735658168
+HBCD036,human,brain,glioblastoma,train_mean,7,0.7817302465438842,0.2624527275562286
+HBCH024,human,breast,breast cancer,coordinate,27,0.28568701037272276,0.05392507890860235
+HBCH024,human,breast,breast cancer,image,27,0.5534966654543366,0.02939036318411425
+HBCH024,human,breast,breast cancer,spatial_knn,27,0.3130851057244789,0.05219983518123622
+HBCH024,human,breast,breast cancer,train_mean,27,0.3963279832420605,0.05016738896568612
+HBES040,human,breast,breast IDC,coordinate,16,0.7638547010719776,0.2342345138479556
+HBES040,human,breast,breast IDC,image,16,0.8770855015942028,0.1597663086972066
+HBES040,human,breast,breast IDC,spatial_knn,16,0.7805921733379364,0.22875242853271108
+HBES040,human,breast,breast IDC,train_mean,16,0.7723971717059612,0.23428435144679885
+HCCD035,human,colorectal,colorectal cancer,coordinate,21,0.6970411267830059,0.20135813998058436
+HCCD035,human,colorectal,colorectal cancer,image,21,0.8512266725301743,0.10000272432807829
+HCCD035,human,colorectal,colorectal cancer,spatial_knn,21,0.7245095469988883,0.18238284753169862
+HCCD035,human,colorectal,colorectal cancer,train_mean,21,0.6867622209247202,0.1893224011873826
+HCCW027,human,cervix,cervical cancer,coordinate,21,0.4578388083439607,0.04792367275804277
+HCCW027,human,cervix,cervical cancer,image,21,0.6775305912256814,0.02867512659957771
+HCCW027,human,cervix,cervical cancer,spatial_knn,21,0.5119347623907603,0.04563699447764796
+HCCW027,human,cervix,cervical cancer,train_mean,21,0.518177852836939,0.04365444640414067
+HHDX011,human,heart,non-diseased,coordinate,12,0.7860886068905101,0.1770594816874055
+HHDX011,human,heart,non-diseased,image,12,0.8420176041476867,0.09391626047299186
+HHDX011,human,heart,non-diseased,spatial_knn,12,0.7936212473055896,0.15520588681101796
+HHDX011,human,heart,non-diseased,train_mean,12,0.7991447027991799,0.14812976127380828
+HKPD015,human,kidney,mixed kidney regions,coordinate,10,0.46835689838880146,0.2148054060645592
+HKPD015,human,kidney,mixed kidney regions,image,10,0.6844047262118413,0.13358959651146174
+HKPD015,human,kidney,mixed kidney regions,spatial_knn,10,0.48804251028177065,0.20920473776566673
+HKPD015,human,kidney,mixed kidney regions,train_mean,10,0.5004167304589198,0.20204089027948863
+HLCD033,human,lung,lung cancer,coordinate,15,0.6352811902761459,0.23621187467748916
+HLCD033,human,lung,lung cancer,image,15,0.8044031510750452,0.15191636187955734
+HLCD033,human,lung,lung cancer,spatial_knn,15,0.6677214642986655,0.20880536145220197
+HLCD033,human,lung,lung cancer,train_mean,15,0.6264800702532133,0.22538726218044755
+HLCX022,human,lung,lung cancer,coordinate,20,0.4201590361310458,0.1808492245859113
+HLCX022,human,lung,lung cancer,image,20,0.7178060382861515,0.10924282702135624
+HLCX022,human,lung,lung cancer,spatial_knn,20,0.4630411945620616,0.1843143977096368
+HLCX022,human,lung,lung cancer,train_mean,20,0.4917020878015921,0.1647786929047313
+HLDX010,human,liver,liver cancer,coordinate,13,0.6832665791518466,0.21274973495408542
+HLDX010,human,liver,liver cancer,image,13,0.6836856543844523,0.20819086858699484
+HLDX010,human,liver,liver cancer,spatial_knn,13,0.6828242721425932,0.20509674296129576
+HLDX010,human,liver,liver cancer,train_mean,13,0.6852481094362257,0.2076140371866004
+HOCD032,human,ovary,ovarian cancer,coordinate,19,0.6965218635637369,0.14061877832039074
+HOCD032,human,ovary,ovarian cancer,image,19,0.8116103682055402,0.08050817201164227
+HOCD032,human,ovary,ovarian cancer,spatial_knn,19,0.7181576254652507,0.118631508256962
+HOCD032,human,ovary,ovarian cancer,train_mean,19,0.7180447816403944,0.1358924995718607
+HOCW023,human,ovary,ovarian cancer,coordinate,20,0.4363599837842313,0.0970277411693876
+HOCW023,human,ovary,ovarian cancer,image,20,0.6462267469953407,0.04164664875715966
+HOCW023,human,ovary,ovarian cancer,spatial_knn,20,0.5254743768748912,0.06045079298994753
+HOCW023,human,ovary,ovarian cancer,train_mean,20,0.4755206339738586,0.0789603570984168
+HPDA034,human,pancreas,ductal adenocarcinoma,coordinate,21,0.49509264405576453,0.21787528309129897
+HPDA034,human,pancreas,ductal adenocarcinoma,image,21,0.7476271491858267,0.09985470369217853
+HPDA034,human,pancreas,ductal adenocarcinoma,spatial_knn,21,0.6007768807391967,0.16381126473988253
+HPDA034,human,pancreas,ductal adenocarcinoma,train_mean,21,0.5191887283036786,0.17128529261437148
+HPXM007,human,pancreas,pancreas,coordinate,20,0.621643839093546,0.13609119188040492
+HPXM007,human,pancreas,pancreas,image,20,0.8184030994772911,0.08191897775977845
+HPXM007,human,pancreas,pancreas,spatial_knn,20,0.6471886189033588,0.12768301013857122
+HPXM007,human,pancreas,pancreas,train_mean,20,0.41728659979999067,0.1592103291302919
+HSDX009,human,skin,non-diseased section 1,coordinate,32,0.21144248818357786,0.14862530103212665
+HSDX009,human,skin,non-diseased section 1,image,32,0.7331902139509717,0.0708317266706424
+HSDX009,human,skin,non-diseased section 1,spatial_knn,32,0.42353061482620735,0.09990513014689649
+HSDX009,human,skin,non-diseased section 1,train_mean,32,0.4246728005198141,0.11671246739127963
+HSDX009_2,human,skin,non-diseased section 2,coordinate,1,0.7739846408367157,0.059350431896746124
+HSDX009_2,human,skin,non-diseased section 2,image,1,0.9520686715841293,0.020884688245132524
+HSDX009_2,human,skin,non-diseased section 2,spatial_knn,1,0.48080112412571907,0.07807182893157
+HSDX009_2,human,skin,non-diseased section 2,train_mean,1,0.6940193176269531,0.0533969206735491
+HSPD012,human,skin,melanoma,coordinate,20,0.42448317933896623,0.5503830015659332
+HSPD012,human,skin,melanoma,image,20,0.8753485127731606,0.19451379155119256
+HSPD012,human,skin,melanoma,spatial_knn,20,0.4882817057099331,0.39323904641248564
+HSPD012,human,skin,melanoma,train_mean,20,0.40046745383491117,0.40554494714295425
+HTDX008,human,tonsil,reactive follicular hyperplasia,coordinate,14,0.588153388723731,0.19249438270926472
+HTDX008,human,tonsil,reactive follicular hyperplasia,image,14,0.8139550916850566,0.11822507623583074
+HTDX008,human,tonsil,reactive follicular hyperplasia,spatial_knn,14,0.6049528965726495,0.1783503923565149
+HTDX008,human,tonsil,reactive follicular hyperplasia,train_mean,14,0.6253431924618781,0.17164049614220853
+MBDC037,mouse,bone,femur,coordinate,17,0.41722443473214904,0.33265415926774344
+MBDC037,mouse,bone,femur,image,17,0.5118161988755067,0.27729401402175424
+MBDC037,mouse,bone,femur,spatial_knn,17,0.5243389661734302,0.2775948512057463
+MBDC037,mouse,bone,femur,train_mean,17,0.4985227274398009,0.28272619110842545
+PCHM006,human,pancreas,pancreatic cancer,coordinate,17,0.8070629508990161,0.21220437732507594
+PCHM006,human,pancreas,pancreatic cancer,image,17,0.9284642023860283,0.12506347016062372
+PCHM006,human,pancreas,pancreatic cancer,spatial_knn,17,0.8509611903496508,0.19081139803495045
+PCHM006,human,pancreas,pancreatic cancer,train_mean,17,0.8372936383733209,0.19818087906207676
+PDHL031,human,lymph_node,reactive lymph node,coordinate,21,0.4465896786566366,0.058818571530936024
+PDHL031,human,lymph_node,reactive lymph node,image,21,0.6726377478294205,0.04495273814781712
+PDHL031,human,lymph_node,reactive lymph node,spatial_knn,21,0.47651194343179987,0.0610594027267213
+PDHL031,human,lymph_node,reactive lymph node,train_mean,21,0.5524526326018467,0.05411832688147557
+PDHP030,human,prostate,prostate,coordinate,19,0.43515080999996925,0.08698820464667815
+PDHP030,human,prostate,prostate,image,19,0.6818419013704572,0.043186641978247724
+PDHP030,human,prostate,prostate,spatial_knn,19,0.5069470882179246,0.0790502477496389
+PDHP030,human,prostate,prostate,train_mean,19,0.5671686888450668,0.06867717114824147
+PDHS029,human,skin,skin,coordinate,21,0.2706298204056892,0.3237276379491241
+PDHS029,human,skin,skin,image,21,0.6495708506292021,0.11104498150378042
+PDHS029,human,skin,skin,spatial_knn,21,0.46293647650262,0.1682178892300162
+PDHS029,human,skin,skin,train_mean,21,0.4830712237408463,0.18322630441734486
+WMPP017,mouse,whole_pup,whole pup,coordinate,26,0.2934864020519431,0.4904833992182369
+WMPP017,mouse,whole_pup,whole pup,image,26,0.8279070214066707,0.1896250540731658
+WMPP017,mouse,whole_pup,whole pup,spatial_knn,26,0.48089302558137076,0.3189983408845646
+WMPP017,mouse,whole_pup,whole pup,train_mean,26,0.49348184865125466,0.31065015274454166
+WMPW025,mouse,whole_pup,whole pup,coordinate,19,0.2973857548225809,0.1982732835329241
+WMPW025,mouse,whole_pup,whole pup,image,19,0.78944949005489,0.10918135844446991
+WMPW025,mouse,whole_pup,whole pup,spatial_knn,19,0.42692551905013343,0.15260949109991387
+WMPW025,mouse,whole_pup,whole pup,train_mean,19,0.5316211870974965,0.1485783039005818
+XTNL005,human,lung,lung cancer,coordinate,24,0.4025364872741412,0.26086203682135384
+XTNL005,human,lung,lung cancer,image,24,0.7107304652412254,0.1565921751849622
+XTNL005,human,lung,lung cancer,spatial_knn,24,0.42341383928447085,0.2406950915254742
+XTNL005,human,lung,lung cancer,train_mean,24,0.42673802618161744,0.23449178964617737
