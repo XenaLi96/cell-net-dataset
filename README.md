@@ -12,7 +12,7 @@ can predict molecular state beyond narrow in-domain interpolation.
 
 ![sMMC-22M overview](dataset.png)
 
-# New In-House Data 🎆🎉
+## New In-House Data 🎆🎉
 
 We have expanded **sMMC-22M** with our new in-house **DBiC** dataset, comprising
 10,000 raw positions across four examples and two species, including 9,806 QC-paired
