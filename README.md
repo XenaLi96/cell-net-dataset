@@ -12,16 +12,19 @@ can predict molecular state beyond narrow in-domain interpolation.
 
 ![sMMC-22M overview](dataset.png)
 
-# New In-House Data 🍾🥂🎆🎉
+# New In-House Data 🎆🎉
 
 We have expanded **sMMC-22M** with our new in-house **DBiC** dataset, comprising
 10,000 raw positions across four examples and two species, including 9,806 QC-paired
 cells with matched morphology images and expression profiles. The data are available
-in the [`DBiC/`](DBiC/) directory. Alongside this release, we have updated the
-supporting evidence demonstrating that our figures were not AI-generated and prepared
-the rebuttal package for the reviewers.
+in the [`DBiC/`](DBiC/) directory.
 
 ![DBiC in-house data](DBiC.jpg)
+
+## For Rebuttal
+
+Alongside this release, we have updated the supporting evidence demonstrating that our
+figures were not AI-generated and prepared the rebuttal package for the reviewers.
 
 ## Highlights
 
